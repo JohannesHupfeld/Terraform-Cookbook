@@ -1,7 +1,8 @@
 terraform {
-  required_version = "<= 0.13"
+  required_version = ">= 0.13"
   required_providers {
     azurerm = {
+      source = "hashicorp/azurerm"
       version = "= 2.10.0"
     }
   }
@@ -22,7 +23,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_public_ip" "pip" {
-  name                         = "book-ip"
+  name                         = "bookip"
   location                     = "West Europe"
   resource_group_name          = azurerm_resource_group.rg.name
   public_ip_address_allocation = "Dynamic"
